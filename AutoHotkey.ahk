@@ -23,7 +23,11 @@
 ^ESC::ExitApp 
 
 XButton1::
-gosub HIDE
+send ^#{Left}
+RETURN
+
+XButton2::
+send ^#{Right}
 RETURN
 
 ;+x::
