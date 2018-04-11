@@ -22,17 +22,26 @@
  
 ^ESC::ExitApp 
 
+^WheelUp::Volume_Up
+
+^WheelDown::Volume_Down
+
+^MButton::Volume_Mute
+
 XButton1::
 send ^#{Left}
+Send {Volume_Mute}
 RETURN
 
 XButton2::
 send ^#{Right}
+Send {Volume_Mute}
 RETURN
 
-;+x::
-;gosub HIDE
-;RETURN
+#x::
+VARIABILE= CONTROLLARE ACCESSORI - MATRICOLA LETTA DA SCATOLA
+gosub INSERISCI 
+RETURN
 
 ;^k::
 ;WinMove, server2015 - Connessione Desktop remoto ,,0,0
@@ -397,15 +406,15 @@ INPUT_UBICAZIONE:
 SoundBeep, 1244, 300
 SoundBeep, 932, 500
 Text := "Scegli dove verrà ubicato il prodotto."
-Result := MagicBox(Text, "Confirm", "&1-Altro1|&2-Altro2|&3-Samsung|&4-Mediacom|&5-LG|&6-SONY|&7-Nokia|&8-Motorola|&9-Tab|&0-HTC|&Scrivi|Ca&ncel", [29], "", "", 0, 0, "", "", "", "")
-	if Result = 1-Altro1
+Result := MagicBox(Text, "Confirm", "&1-Altro|&2-Alcatel|&3-Samsung|&4-Mediacom|&5-LG|&6-SONY|&7-Nokia|&8-Motorola|&9-Tab|&0-HTC|&Scrivi|Ca&ncel", [29], "", "", 0, 0, "", "", "", "")
+	if Result = 1-Altro
 	{
-		Ubicazione = ALTRO1
+		Ubicazione = ALTRO
 	}
 
-	if Result = 2-Altro2
+	if Result = 2-Alcatel
 	{
-		Ubicazione = ALTRO2
+		Ubicazione = ALCATEL
 	}
 
 	if Result = 3-Samsung
